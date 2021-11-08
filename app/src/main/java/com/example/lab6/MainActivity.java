@@ -51,6 +51,7 @@ public class MainActivity extends FragmentActivity {
                     .addOnCompleteListener(this, task -> {
                 Location mLastKnownLocation = task.getResult();
                 if(task.isSuccessful() && mLastKnownLocation != null) {
+                    mMap.addMarker(new MarkerOptions().position(new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude())).title("Destination1"));
                     mMap.addPolyline(new PolylineOptions().add(
                             new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude()),
                             mDestinationLatLng));
